@@ -108,7 +108,7 @@ class AuthController extends AbstractController
                 // and you get an error
                 $this->render("auth/login", [
                     "errors" => [
-                        "Identifiants incorrects"
+                        "Aucun compte avec cet email"
                     ]
                 ]);
             }
