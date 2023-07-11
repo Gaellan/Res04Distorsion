@@ -21,7 +21,7 @@ class Message
      * @param Room $room
      * @param DateTime $datetime
      */
-    public function __construct(?string $title = null, string $content, User $author, Room $room, DateTime $datetime)
+    public function __construct(?string $title, string $content, User $author, Room $room, DateTime $datetime)
     {
         $this->title = $title;
         $this->content = $content;

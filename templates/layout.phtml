@@ -6,6 +6,18 @@
         <link rel="stylesheet" href="assets/styles/css/style.css" />
     </head>
     <body>
+        <header>
+
+        </header>
+        <?php
+            if($template !== "auth/login" && $template !== "auth/register" )
+            {
+                require "templates/partials/_sidebar.phtml";
+            }
+        ?>
         <?php require "templates/$template.phtml"; ?>
+        <footer>
+
+        </footer>
     </body>
 </html>

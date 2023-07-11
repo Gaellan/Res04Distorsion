@@ -1,3 +1,41 @@
 <main>
-    <h1>Register</h1>
+    <h1>Création de compte</h1>
+    <form action="/register" method="post">
+        <p class="form-errors">
+            <?php
+            if(isset($data["errors"]))
+                echo $data["errors"][0];
+            ?>
+        </p>
+        <input type="hidden" name="form-name" id="form-name" value="register" />
+        <fieldset>
+            <label for="register-username">
+                Pseudo
+            </label>
+            <input type="text" name="register-username" id="register-username"/>
+        </fieldset>
+        <fieldset>
+            <label for="register-email">
+                Email
+            </label>
+            <input type="email" name="register-email" id="register-email"/>
+        </fieldset>
+        <fieldset>
+            <label for="register-password">
+                Mot de passe
+            </label>
+            <input type="password" name="register-password" id="register-password"/>
+        </fieldset>
+        <fieldset>
+            <label for="register-confirm-password">
+                Confirmer le Mot de passe
+            </label>
+            <input type="password" name="register-confirm-password" id="register-confirm-password"/>
+        </fieldset>
+        <fieldset>
+            <button type="submit">
+                Créer un compte
+            </button>
+        </fieldset>
+    </form>
 </main>

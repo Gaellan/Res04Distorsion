@@ -1,3 +1,30 @@
 <main>
-    <h1>Login</h1>
+    <h1>Connexion</h1>
+    <form action="/login" method="post">
+        <p class="form-errors">
+            <?php
+            if(isset($data["errors"]))
+                echo $data["errors"][0];
+            ?>
+        </p>
+        <input type="hidden" name="form-name" id="form-name" value="login" />
+        <fieldset>
+            <label for="login-email">
+                Email
+            </label>
+            <input type="email" name="login-email" id="login-email"/>
+        </fieldset>
+        <fieldset>
+            <label for="login-password">
+                Mot de passe
+            </label>
+            <input type="password" name="login-password" id="login-password"/>
+        </fieldset>
+        <fieldset>
+            <button type="submit">
+                Se connecter
+            </button>
+        </fieldset>
+        <a href="/register">Pas encore de compte ? Créez-en un</a>
+    </form>
 </main>

@@ -9,6 +9,13 @@ class HomeController extends AbstractController
 {
     public function index()
     {
-        $this->render("index", []);
+        if(isset($_SESSION["user"]))
+        {
+            $this->render("room/index", []);
+        }
+        else
+        {
+            header("Location:/login");
+        }
     }
 }

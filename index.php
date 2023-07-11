@@ -6,10 +6,9 @@ require "config/autoload.php";
 
 try {
     $router = new Router();
-
-    if(isset($_GET['path']))
+    if(isset($_SERVER['REQUEST_URI']))
     {
-        $request = "/".$_GET['path'];
+        $request = $_SERVER['REQUEST_URI'];
     }
     else
     {
