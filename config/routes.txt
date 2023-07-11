@@ -1,0 +1,9 @@
+/ HomeController:index
+/room/* RoomController:index
+/room-add RoomController:add
+/register AuthController:register
+/login AuthController:login
+/logout AuthController:logout
+/category-add CategoryController:add
+/message MessageController:add
+
