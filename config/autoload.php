@@ -4,7 +4,30 @@
  * @link : https://github.com/Gaellan
  */
 
+require "./entities/Category.php";
+require "./entities/Media.php";
+require "./entities/Message.php";
+require "./entities/Room.php";
+require "./entities/User.php";
+
+require "./managers/AbstractManager.php";
+require "./managers/CategoryManager.php";
+require "./managers/MessageManager.php";
+require "./managers/RoomManager.php";
+require "./managers/UserManager.php";
+
+require "./controllers/AbstractController.php";
+require "./controllers/CategoryController.php";
+require "./controllers/MessageController.php";
+require "./controllers/RoomController.php";
+require "./controllers/AuthController.php";
+require "./controllers/HomeController.php";
+
+require "./services/RandomStringGenerator.php";
+require "./services/Uploader.php";
 require "./services/Router.php";
+
+
 
 $routes = [];
 

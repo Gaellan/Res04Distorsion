@@ -6,4 +6,3 @@
 /logout AuthController:logout
 /category-add CategoryController:add
 /message MessageController:add
-
