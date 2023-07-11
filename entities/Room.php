@@ -10,15 +10,17 @@ class Room
     private ?int $id;
     private string $name;
     private ?string $description;
+    private Category $category;
 
     /**
      * @param string $name
      * @param string|null $description
      */
-    public function __construct(string $name, ?string $description)
+    public function __construct(string $name, ?string $description, Category $category)
     {
         $this->name = $name;
         $this->description = $description;
+        $this->category = $category;
     }
 
     /**
@@ -67,5 +69,21 @@ class Room
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
     }
 }
