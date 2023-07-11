@@ -7,5 +7,18 @@
 
 class CategoryManager
 {
+    public function getAllCategories() : array
+    {
+        return [];
+    }
 
+    public function getCategoryById(int $id) :?Category
+    {
+        return null;
+    }
+
+    public function createCategory(Category $category) : void
+    {
+
+    }
 }
