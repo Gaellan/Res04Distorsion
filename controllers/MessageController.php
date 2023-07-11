@@ -7,5 +7,8 @@
 
 class MessageController extends AbstractController
 {
-    /** TODO add method */
+    public function add()
+    {
+
+    }
 }

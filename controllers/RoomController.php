@@ -7,7 +7,13 @@
 
 class RoomController extends AbstractController
 {
-    /** TODO index method */
+    public function index()
+    {
 
-    /** TODO add method */
+    }
+
+    public function add()
+    {
+
+    }
 }

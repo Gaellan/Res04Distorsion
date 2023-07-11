@@ -7,5 +7,9 @@
 
 class CategoryController extends AbstractController
 {
-    /** TODO add method */
+
+    public function add()
+    {
+
+    }
 }

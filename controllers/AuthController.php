@@ -7,9 +7,19 @@
 
 class AuthController extends AbstractController
 {
-    /** TODO register method */
+    public function register()
+    {
 
-    /** TODO login method */
+    }
 
-    /** TODO logout method */
+    public function login()
+    {
+
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header("Location:/");
+    }
 }
