@@ -16,9 +16,27 @@ class RoomController extends AbstractController
         $this->cm = new CategoryManager();
     }
 
-    public function index()
+    public function index(string $roomId)
     {
+        $id = intval($roomId);
 
+        $room = $this->manager->getRoomById($id);
+
+        $categories = $this->cm->getAllCategories();
+        $cats = [];
+
+        foreach($categories as $category)
+        {
+            $item = [];
+            $item["category"] = $category;
+            $item["rooms"] = $this->manager->getRoomsByCategory($category);
+            $cats[] = $item;
+        }
+
+        $this->render("room/index", [
+            "room" => $room,
+            "categories" => $cats
+        ]);
     }
 
     public function add()

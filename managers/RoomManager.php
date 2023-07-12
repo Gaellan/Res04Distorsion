@@ -28,6 +28,40 @@ class RoomManager extends AbstractManager
 
     public function getRoomById(int $id) : ?Room
     {
+        $query = $this->db->prepare("SELECT * FROM rooms WHERE id=:id");
+        $parameters = [
+            "id" => $id
+        ];
+        $query->execute($parameters);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        if($result !== false)
+        {
+            $queryCat = $this->db->prepare("SELECT * FROM category WHERE id = :id");
+            $catParameters = [
+                "id" => $result["category_id"]
+            ];
+            $queryCat->execute($catParameters);
+            $resultCat = $queryCat->fetch(PDO::FETCH_ASSOC);
+
+            if($resultCat !== false)
+            {
+                $category = new Category($resultCat["name"]);
+                $category->setId($resultCat["id"]);
+            }
+            else
+            {
+                $category = null;
+            }
+
+            if($category)
+            {
+                $room = new Room($result["name"], $result["description"], $category);
+                $room->setId($id);
+
+                return $room;
+            }
+        }
         return null;
     }
 
@@ -48,7 +82,7 @@ class RoomManager extends AbstractManager
                 "id" => $categoryId
             ];
             $queryCat->execute($catParameters);
-            $resultCat = $query->fetch(PDO::FETCH_ASSOC);
+            $resultCat = $queryCat->fetch(PDO::FETCH_ASSOC);
 
             if($resultCat !== false)
             {
