@@ -5,7 +5,7 @@
  */
 
 
-class Message
+class Message implements JsonSerializable
 {
     private ?int $id;
     private ?string $title;
@@ -126,4 +126,17 @@ class Message
         $this->datetime = $datetime;
     }
 
+    #[ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $array = [];
+        $array["id"] = $this->id;
+        $array["title"] = $this->title;
+        $array["content"] = $this->content;
+        $array["author"] = $this->author->jsonSerialize();
+        $array["room"] = $this->room->jsonSerialize();
+        $array["date"] = $this->datetime;
+
+        return $array;
+    }
 }

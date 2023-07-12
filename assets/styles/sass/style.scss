@@ -38,6 +38,22 @@ aside {
       display: none;
     }
 
+  }
+}
 
+#room {
+  display: grid;
+  grid-template-rows: 0.9fr 0.1fr;
+
+  dl {
+    overflow-y: scroll;
+  }
+
+  input[type='text'] {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%
   }
 }

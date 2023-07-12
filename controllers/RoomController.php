@@ -9,11 +9,13 @@ class RoomController extends AbstractController
 {
     private RoomManager $manager;
     private CategoryManager $cm;
+    private MessageManager $mm;
 
     public function __construct()
     {
         $this->manager = new RoomManager();
         $this->cm = new CategoryManager();
+        $this->mm = new MessageManager();
     }
 
     public function index(string $roomId)
@@ -21,6 +23,7 @@ class RoomController extends AbstractController
         $id = intval($roomId);
 
         $room = $this->manager->getRoomById($id);
+        $messages = $this->mm->getMessagesByRoom($room);
 
         $categories = $this->cm->getAllCategories();
         $cats = [];
@@ -35,7 +38,8 @@ class RoomController extends AbstractController
 
         $this->render("room/index", [
             "room" => $room,
-            "categories" => $cats
+            "categories" => $cats,
+            "messages" => $messages
         ]);
     }
 

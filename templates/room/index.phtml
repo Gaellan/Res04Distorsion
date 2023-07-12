@@ -1,7 +1,34 @@
-<main>
-    <?php
+<main id="room">
+    <dl>
+        <?php
+        foreach($data["messages"] as $message)
+        {
+            ?>
+            <dt>
+                <?= $message->getTitle(); ?>
+            </dt>
+            <dd>
+                <?= $message->getContent(); ?>
+            </dd>
+        <?php
+        }
+        ?>
+    </dl>
+    <form id="add-message" action="/message" method="post">
+        <input type="hidden" id="form-name" name="form-name" value="create-message" />
+        <fieldset>
+            <label for="message-title">
+                Titre
+            </label>
+            <input type="text" name="message-title" id="message-title" />
+        </fieldset>
+       <fieldset>
+           <label for="message-content">
+               Message
+           </label>
+           <textarea maxlength="2047" id="message-content" name="message-content">
 
-    var_dump($data["room"]);
-
-    ?>
+           </textarea>
+       </fieldset>
+    </form>
 </main>

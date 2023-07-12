@@ -5,7 +5,7 @@
  */
 
 
-class User
+class User implements JsonSerializable
 {
     private ?int $id = null;
     private string $username;
@@ -83,4 +83,15 @@ class User
         $this->password = $password;
     }
 
+    #[ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $array = [];
+        $array["id"] = $this->id;
+        $array["username"] = $this->username;
+        $array["email"] = $this->email;
+        $array["password"] = $this->password;
+
+        return $array;
+    }
 }
