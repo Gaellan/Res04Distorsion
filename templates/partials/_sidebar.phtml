@@ -1,5 +1,28 @@
 <aside>
-    <h2>Sidebar</h2>
+    <h2>Categories</h2>
+    <?php
+        foreach($data["categories"] as $category)
+        {
+            ?>
+            <h3><?= $category["category"]->getName(); ?></h3>
+            <ul>
+                <?php
+                foreach($category["rooms"] as $room)
+                {
+                    ?>
+                    <li>
+                        <a href="/room/<?= $room->getId() ?>">
+                            <?= $room->getName(); ?>
+                        </a>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+            <button class="create-room-btn" data-cat-id="<?= $category["category"]->getId();?>">+</button>
+            <?php require "templates/partials/_create-room.phtml"; ?>
+            <?php
+        }
+        ?>
     <?php require "templates/partials/_create-category.phtml"; ?>
-    <?php require "templates/partials/_create-room.phtml"; ?>
 </aside>

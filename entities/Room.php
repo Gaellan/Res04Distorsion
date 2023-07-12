@@ -5,7 +5,7 @@
  */
 
 
-class Room
+class Room implements JsonSerializable
 {
     private ?int $id;
     private string $name;
@@ -85,5 +85,17 @@ class Room
     public function setCategory(Category $category): void
     {
         $this->category = $category;
+    }
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $array = [];
+        $array["id"] = $this->id;
+        $array["name"] = $this->name;
+        $array["description"] = $this->description;
+        $array["category"] = $this->category->jsonSerialize();
+
+        return $array;
     }
 }

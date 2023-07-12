@@ -27,7 +27,17 @@ aside {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
 
+  button.hide {
+    display: none;
+  }
+
   form {
     width: 100%;
+
+    &[id^="create-room"].hide {
+      display: none;
+    }
+
+
   }
 }

@@ -1,5 +1,6 @@
-<form id="create-room" action="/room-add" method="post">
+<form class="hide" id="create-room-<?= $category["category"]->getId(); ?>" action="/room-add" method="post">
     <input type="hidden" name="form-name" id="form-name" value="create-room" />
+    <input type="hidden" name="category-id" id="category-id" value="<?= $category["category"]->getId(); ?>" />
     <fieldset>
         <label for="room-name">
             Nom du salon
