@@ -16,6 +16,7 @@
     </dl>
     <form id="add-message" action="/message" method="post">
         <input type="hidden" id="form-name" name="form-name" value="create-message" />
+        <input type="hidden" id="room-id" name="room-id" value="<?= $data["room"]->getId(); ?>" />
         <fieldset>
             <label for="message-title">
                 Titre
@@ -30,5 +31,6 @@
 
            </textarea>
        </fieldset>
+        <button type="submit">Envoyer</button>
     </form>
 </main>

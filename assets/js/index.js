@@ -65,9 +65,33 @@ window.addEventListener("DOMContentLoaded", function(){
 
            clicked.classList.add("hide");
         });
-
     }
 
+    let $messageForm = document.getElementById("add-message");
+    $messageForm.addEventListener("submit", function(event){
+        event.preventDefault();
 
+        let title = document.querySelector(`#message-title`).value;
+        let formName = document.querySelector(`#add-message #form-name`).value;
+        let content = document.querySelector(`#message-content`).value;
+        let roomId = document.querySelector(`#room-id`).value;
+
+        let $formData = new FormData();
+        $formData.append('message-title', title);
+        $formData.append('form-name', formName);
+        $formData.append('message-content', content);
+        $formData.append('room-id', roomId);
+
+        const options = {
+            method: 'POST',
+            body: $formData
+        };
+
+        fetch('/message', options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+    });
 
 });

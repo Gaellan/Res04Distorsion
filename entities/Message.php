@@ -7,7 +7,7 @@
 
 class Message implements JsonSerializable
 {
-    private ?int $id;
+    private ?int $id = null;
     private ?string $title;
     private string $content;
     private User $author;

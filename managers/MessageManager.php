@@ -40,8 +40,19 @@ class MessageManager extends AbstractManager
         return $list;
     }
 
-    public function createMessage(Message $message) : void
+    public function createMessage(Message $message) : ?Message
     {
+        $query = $this->db->prepare("INSERT INTO messages(id, title, content, author_id, room_id, date) VALUES (null, :title, :content, :author, :room, :date)");
+        $parameters = [
+          "title" => $message->getTitle(),
+          "content" => $message->getContent(),
+          "author" => $message->getAuthor()->getId(),
+          "room" => $message->getRoom()->getId(),
+          "date" => date('Y-m-d H:i:s')
+        ];
+        $query->execute($parameters);
+        $message->setId($this->db->lastInsertId());
 
+        return $message;
     }
 }

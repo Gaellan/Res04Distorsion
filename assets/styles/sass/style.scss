@@ -6,15 +6,11 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-rows: 10vh 85vh;
   grid-template-columns: 20vw 80vw;
 }
 
 header {
-  grid-column: 1 / 3;
-}
-
-footer {
   grid-column: 1 / 3;
 }
 
@@ -43,7 +39,7 @@ aside {
 
 #room {
   display: grid;
-  grid-template-rows: 0.9fr 0.1fr;
+  grid-template-rows: 75vh 10vh;
 
   dl {
     overflow-y: scroll;
