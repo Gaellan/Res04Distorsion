@@ -5,7 +5,7 @@
  */
 
 
-class Category
+class Category implements JsonSerializable
 {
     private ?int $id;
     private string $name;
@@ -48,5 +48,15 @@ class Category
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $array = [];
+        $array["id"] = $this->id;
+        $array["name"] = $this->name;
+
+        return $array;
     }
 }

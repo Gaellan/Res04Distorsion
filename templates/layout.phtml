@@ -19,5 +19,13 @@
         <footer>
 
         </footer>
+        <?php
+        if($template !== "auth/login" && $template !== "auth/register" )
+        {
+            ?>
+        <script type="module" src="assets/js/index.js"></script>
+        <?php
+        }
+        ?>
     </body>
 </html>
