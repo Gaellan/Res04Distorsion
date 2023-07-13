@@ -1,12 +1,15 @@
 window.addEventListener("DOMContentLoaded", function(){
 
+    let lastLi = document.querySelector("main ul li:last-of-type");
+    lastLi.scrollIntoView(false);
+
     // create category
     let $categoryForm = document.getElementById("create-category");
     $categoryForm.addEventListener("submit", function(event){
         event.preventDefault();
 
         let $categoryName = document.getElementById("category-name").value;
-        let $formName = document.getElementById("form-name").value;
+        let $formName = document.querySelector("#create-category #form-name").value;
 
         let $formData = new FormData();
         $formData.append('category-name', $categoryName);
@@ -21,6 +24,7 @@ window.addEventListener("DOMContentLoaded", function(){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                window.location.reload();
             });
     });
 
@@ -59,6 +63,7 @@ window.addEventListener("DOMContentLoaded", function(){
                    .then(response => response.json())
                    .then(data => {
                        console.log(data);
+                       window.location.reload();
                    });
 
            });
