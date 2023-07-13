@@ -1,55 +1,215 @@
+@import "libs/reset";
+
+/* VARS */
+@import "vars";
+
 html {
   font-size: 14px;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  height:100vh;
+  width:100vw;
+  overflow-x: hidden;
   display: grid;
-  grid-template-rows: 10vh 85vh;
+  grid-template-rows: 5vh 95vh;
   grid-template-columns: 20vw 80vw;
+  background-color: $dark-purple;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+
+  & > header {
+    grid-column: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: 2rem;
+      color: $vivid-sky-blue;
+    }
+  }
 }
 
-header {
-  grid-column: 1 / 3;
-}
+
 
 main {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
+  padding: 1rem;
+
+  & > h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: $fandango;
+  }
 }
 
 aside {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  padding: 1rem 2rem;
+
+  h2 {
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    margin-top: 1.8rem;
+  }
+
+  li {
+    margin: 1rem 0;
+
+    a {
+      color:white;
+      text-decoration: none;
+
+      &:hover {
+        color:$vivid-sky-blue;
+      }
+
+      &.active {
+        color:$vivid-sky-blue;
+        font-weight: 700;
+      }
+    }
+  }
 
   button.hide {
     display: none;
   }
 
+  button {
+    background-color: transparent;
+    border:none;
+    color: white;
+  }
+
   form {
     width: 100%;
+
+    fieldset {
+      display: grid;
+      grid-template-rows: 0.2fr 0.8fr;
+
+      label {
+        display: none;
+      }
+
+      input {
+        background-color: rgba(56, 45, 81, 1);
+        border: none;
+        color: white;
+      }
+    }
 
     &[id^="create-room"].hide {
       display: none;
     }
 
+    & > button {
+      background-color: $palatinate-blue;
+      color:white;
+      border:none;
+    }
+
+  }
+
+  #create-category {
+    margin-top: 2rem;
   }
 }
 
 #room {
   display: grid;
-  grid-template-rows: 75vh 10vh;
+  grid-template-rows: 5vh 65vh 20vh;
 
-  dl {
+  ul {
     overflow-y: scroll;
+    padding:1rem 1.5rem;
+
+    li {
+      background-color: $grape;
+      line-height: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 5px;
+
+      article {
+        display: grid;
+        grid-template-rows: minmax(1fr, max-content) minmax(5fr, max-content) minmax(1fr, max-content);
+
+        & > header {
+          padding:1rem;
+
+          h4 {
+            font-weight: 200;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+          }
+
+          h3 {
+            font-weight: 700;
+          }
+        }
+
+        & > p {
+          padding: 1rem;
+          border-bottom: 1px solid $grape;
+        }
+
+        & > footer {
+          padding: 1rem;
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
+  form {
+    padding: 1rem 1rem;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    row-gap: 1rem;
+
+    fieldset {
+
+      label {
+        display: none;
+      }
+    }
+
+    button {
+      width:30%;
+      background-color: $palatinate-blue;
+      color:white;
+      border:none;
+      height:100%;
+    }
   }
 
   input[type='text'] {
-    width: 100%;
+    width: 80%;
+    height:100%;
+    background-color: rgba(56, 45, 81, 1);
+    border: none;
+    color:white;
   }
 
   textarea {
-    width: 100%
+    width: 80%;
+    height: 100%;
+    background-color: rgba(56, 45, 81, 1);
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    color:white;
   }
 }

@@ -91,6 +91,37 @@ window.addEventListener("DOMContentLoaded", function(){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+
+                let li = document.createElement("li");
+                let article = document.createElement("article");
+                let header = document.createElement("header");
+                let h4 = document.createElement("h4");
+                let h3 = document.createElement("h3");
+                let p = document.createElement("p");
+                let footer = document.createElement("footer");
+                let footerP = document.createElement("p");
+                let author = document.createTextNode(data.message.author.username);
+                let title = document.createTextNode(data.message.title);
+                let content = document.createTextNode(data.message.content);
+                let date = document.createTextNode(data.message.date);
+
+                footerP.appendChild(date);
+                footer.appendChild(footerP);
+                p.appendChild(content);
+                h3.appendChild(title);
+                h4.appendChild(author);
+                header.appendChild(h4);
+                header.appendChild(h3);
+                article.appendChild(header);
+                article.appendChild(p);
+                article.appendChild(footer);
+                li.appendChild(article);
+
+                let ul = document.querySelector("main > ul");
+
+                ul.appendChild(li);
+                li.scrollIntoView(false);
+
             });
     });
 

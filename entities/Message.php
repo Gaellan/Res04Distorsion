@@ -135,7 +135,7 @@ class Message implements JsonSerializable
         $array["content"] = $this->content;
         $array["author"] = $this->author->jsonSerialize();
         $array["room"] = $this->room->jsonSerialize();
-        $array["date"] = $this->datetime;
+        $array["date"] = $this->datetime->format('d-m-Y H:i');
 
         return $array;
     }

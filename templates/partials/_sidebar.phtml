@@ -1,6 +1,13 @@
 <aside>
     <h2>Categories</h2>
     <?php
+        $active = null;
+
+        if(isset($data["room"]))
+        {
+            $active = $data["room"]->getId();
+        }
+
         foreach($data["categories"] as $category)
         {
             ?>
@@ -11,7 +18,7 @@
                 {
                     ?>
                     <li>
-                        <a href="/room/<?= $room->getId() ?>">
+                        <a href="/room/<?= $room->getId() ?>" <?php if ($active === $room->getId()){ echo "class='active'"; }?>>
                             <?= $room->getName(); ?>
                         </a>
                     </li>

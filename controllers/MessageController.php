@@ -35,9 +35,7 @@ class MessageController extends AbstractController
             $message = new Message($title, $content, $user, $room, $currentDatetime);
             $this->mm->createMessage($message);
 
-            $messages = $this->mm->getMessagesByRoom($room);
-
-            $this->renderJson(["messages" => $messages]);
+            $this->renderJson(["message" => $message]);
         }
     }
 }
