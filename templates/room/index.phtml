@@ -1,36 +1,50 @@
 <main id="room">
     <h2>
-        <?= $data["room"]->getName(); ?>
+        <?php
+        if(isset($data["room"]))
+        {
+            echo $data["room"]->getName();
+        }
+        else
+        {
+            echo "<- Choisissez un salon ou créez-en un nouveau";
+        }
+        ?>
     </h2>
-    <ul>
+    <?php
+    if(isset($data["room"]))
+    {
+        ?>
+        <ul>
 
             <?php
             foreach($data["messages"] as $message)
             {
                 ?>
-                <li>
-                    <article>
-                        <header>
-                            <h4><?= $message->getAuthor()->getUsername(); ?></h4>
-                            <h3><?= $message->getTitle(); ?></h3>
-                        </header>
-                        <p>
-                            <?= $message->getContent(); ?>
-                        </p>
-                        <footer>
-                            <p>
-                                <?= $message->getDatetime()->format('d-m-Y H:i'); ?>
-                            </p>
-                        </footer>
-                    </article>
-                </li>
-                <?php
-            }
-            ?>
+    <li>
+        <article>
+            <header>
+                <h4><?= $message->getAuthor()->getUsername(); ?></h4>
+                <h3><?= $message->getTitle(); ?></h3>
+            </header>
+            <p>
+                <?= $message->getContent(); ?>
+            </p>
+            <footer>
+                <p>
+                    <?= $message->getDatetime()->format('d-m-Y H:i'); ?>
+                </p>
+            </footer>
+        </article>
+    </li>
+    <?php
+    }
+    ?>
 
     </ul>
     <form id="add-message" action="/message" method="post">
         <input type="hidden" id="form-name" name="form-name" value="create-message" />
+
         <input type="hidden" id="room-id" name="room-id" value="<?= $data["room"]->getId(); ?>" />
         <fieldset>
             <label for="message-title">
@@ -38,12 +52,16 @@
             </label>
             <input type="text" name="message-title" id="message-title" placeholder="Titre du message"/>
         </fieldset>
-       <fieldset>
-           <label for="message-content">
-               Message
-           </label>
-           <textarea maxlength="2047" id="message-content" name="message-content" placeholder="Message"></textarea>
-       </fieldset>
+        <fieldset>
+            <label for="message-content">
+                Message
+            </label>
+            <textarea maxlength="2047" id="message-content" name="message-content" placeholder="Message"></textarea>
+        </fieldset>
         <button type="submit">Envoyer</button>
     </form>
+    <?php
+    }
+    ?>
+
 </main>
