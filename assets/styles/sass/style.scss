@@ -108,6 +108,7 @@ aside {
         background-color: rgba(56, 45, 81, 1);
         border: none;
         color: white;
+        min-height: 2rem;
       }
     }
 
@@ -119,6 +120,7 @@ aside {
       background-color: $palatinate-blue;
       color:white;
       border:none;
+      padding: 0.5rem;
     }
 
   }
@@ -130,7 +132,20 @@ aside {
 
 #room {
   display: grid;
-  grid-template-rows: 5vh 65vh 20vh;
+  grid-template-rows: 5vh 60vh 25vh;
+
+  ul::-webkit-scrollbar {
+    width:0.5rem;
+  }
+
+  ul::-webkit-scrollbar-thumb {
+    background-color:rgba(56, 45, 81, 1);
+    border-radius: 10px;
+  }
+
+  ul::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
   ul {
     overflow-y: scroll;
@@ -202,6 +217,7 @@ aside {
     background-color: rgba(56, 45, 81, 1);
     border: none;
     color:white;
+    font-family: "Montserrat", sans-serif;
   }
 
   textarea {

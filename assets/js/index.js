@@ -1,7 +1,11 @@
 window.addEventListener("DOMContentLoaded", function(){
 
     let lastLi = document.querySelector("main ul li:last-of-type");
-    lastLi.scrollIntoView(false);
+    if(lastLi)
+    {
+        lastLi.scrollIntoView(false);
+    }
+
 
     // create category
     let $categoryForm = document.getElementById("create-category");
@@ -126,6 +130,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
                 ul.appendChild(li);
                 li.scrollIntoView(false);
+                document.querySelector(`#message-content`).value = "";
 
             });
     });
